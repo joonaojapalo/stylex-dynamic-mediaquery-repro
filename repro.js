@@ -1,19 +1,19 @@
 const babel = require("@babel/core");
 
 const input = `
-import * as stylex from '@stylexjs/stylex';
+  import * as stylex from '@stylexjs/stylex';
 
-const styles = stylex.create({
-  highlightAt: (small, large) => ({
-    backgroundColor: {
-      default: null,
-      "@media (max-width: 599px)": small ? "red" : null,
-      "@media (min-width: 600px)": large ? "red" : null,
-    },
-  }),
-});
+  const styles = stylex.create({
+    highlightAt: (small, large) => ({
+      backgroundColor: {
+        default: null,
+        "@media (max-width: 599px)": small ? "red" : null,
+        "@media (min-width: 600px)": large ? "red" : null,
+      },
+    }),
+  });
 
-<div {...stylex.props(styles.highlightAt(false, true))} />
+  <div {...stylex.props(styles.highlightAt(false, true))} />
 `;
 
 const output = babel.transformSync(input, {
